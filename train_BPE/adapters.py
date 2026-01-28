@@ -538,7 +538,6 @@ def run_load_checkpoint(
     """
     raise NotImplementedError
 
-from tests.BPEtokenizer import BPETokenizer
 
 def get_tokenizer(
     vocab: dict[int, bytes],
@@ -560,8 +559,6 @@ def get_tokenizer(
     Returns:
         A BPE tokenizer that uses the provided vocab, merges, and special tokens.
     """
-    bpeTokenizer = BPETokenizer(vocab,merges,special_tokens)
-    return bpeTokenizer
     raise NotImplementedError
 
 import os

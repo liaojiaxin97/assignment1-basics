@@ -1,4 +1,21 @@
-# Byte-compiled / optimized / DLL files
+# Python venv and cache
+.venv/
+__pycache__/
+*.pyc
+
+# Large datasets and models
+train_BPE/data/
+train_BPE/output/
+*.pt
+*.npz
+
+# Editors and logs
+.vscode/
+*.log
+
+# Misc
+uv.lock
+*.pdf# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
