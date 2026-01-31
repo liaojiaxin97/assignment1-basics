@@ -56,9 +56,9 @@ import resource
 from adapters import run_train_bpe
 
 def main():
-    dataset  = "owt_train"
+    dataset  = "tinystories_sample_5M"
     input_path = "/root/Desktop/assignment1-basics/train_BPE/data/" + (dataset + ".txt")
-    vocab_size = 320000
+    vocab_size = 5000
     
     special_tokens = ["<endoftext>"]
     
