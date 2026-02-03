@@ -35,8 +35,9 @@ def save_tokenizer_files(vocab, merges, out_dir,dataset):
 
     # 词表保存（使用 byte_encoder 将 bytes 转换为可见字符串）
     json_vocab = {
-        k: "".join(byte_encoder[b] for b in v)
+        "".join(byte_encoder[b] for b in v): k 
         for k, v in vocab.items()
+        
     }
     with open(os.path.join(out_dir, dataset+"vocab.json"), "w", encoding="utf-8") as f:
         json.dump(json_vocab, f, ensure_ascii=False, indent=4)
@@ -56,11 +57,11 @@ import resource
 from adapters import run_train_bpe
 
 def main():
-    dataset  = "tinystories_sample_5M"
-    input_path = "/root/Desktop/assignment1-basics/train_BPE/data/" + (dataset + ".txt")
-    vocab_size = 5000
+    dataset  = "TinyStoriesV2-GPT4-train"
+    input_path = "/root/Desktop/assignment1-basics/data/" + (dataset + ".txt")
+    vocab_size = 10000
     
-    special_tokens = ["<endoftext>"]
+    special_tokens = ["<|endoftext|>"]
     
     outpput_dir = outpput_dir = pathlib.Path(__file__).resolve().parent / "output"
     
@@ -77,7 +78,8 @@ def main():
     peak_mib = peak_kb / 1024.0
 
     print(f"训练耗时: {dt:.2f}s, 进程峰值内存: {peak_mib:.1f} MiB")
-    
+    #生成vocab和merge文件
+    #vocab.json    merge.txt
     save_tokenizer_files(vocab,merges,outpput_dir,dataset)
     
 
