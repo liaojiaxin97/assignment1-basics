@@ -178,3 +178,9 @@ cython_debug/
 
 .ruff_cache/
 *.zip
+# Large user folders
+model_result/
+slurm_logs/
+wandb/
+data/
+assignment2/
