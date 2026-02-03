@@ -110,7 +110,7 @@ with open(valid_txt_path, "r", encoding="utf-8") as f:
     valid_content = f.read()
 # Encode the content, not the path
 
-# output1 = bpeTokenizer.encode(train_content)
+output1 = bpeTokenizer.encode(train_content)
 output2 = bpeTokenizer.encode(valid_content)
 
 # Define output directory
@@ -122,13 +122,13 @@ output1_path = os.path.join(output_dir, "TinyStoriesV2-GPT4-train.bin")
 output2_path = os.path.join(output_dir, "TinyStoriesV2-GPT4-valid.bin")
 # Retrieve the token ids and convert to numpy array (uint16 is usually sufficient for vocab size < 65536)
 
-# ids = np.array(output1, dtype=np.uint16)
-# ids.tofile(output1_path)
+ids = np.array(output1, dtype=np.uint16)
+ids.tofile(output1_path)
 
 ids2 = np.array(output2, dtype=np.uint16)
 ids2.tofile(output2_path)
 
-# print(f" TinyStoriesV2-GPT4-train Saved {len(ids)} tokens to {output1_path}")
+print(f" TinyStoriesV2-GPT4-train Saved {len(ids)} tokens to {output1_path}")
 
 
 print(f" TinyStoriesV2-GPT4-valid Saved {len(ids2)} tokens to {output2_path}")
